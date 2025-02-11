@@ -1,22 +1,11 @@
 class Solution:
     def removeOccurrences(self, s: str, part: str) -> str:
-        word = list(s)
-        i = 0
-        targetLength = len(part)
+        stack = []
+        part_length = len(part)
         
-        while i < len(word):
-            if self.getMatch(word, part, i):
-                del word[i:i+targetLength]
-                i = max(0, i - targetLength)
-            else:
-                i += 1
+        for char in s:
+            stack.append(char)
+            if (len(stack) >= part_length) and ("".join(stack[-part_length:]) == part):
+                del stack[-part_length:]
         
-        return "".join(word)
-    
-    def getMatch(self, word, part, i):
-        if len(word) < len(part): 
-            return False
-        for j in range(len(part)):
-            if i + j >= len(word) or word[i + j] != part[j]: 
-                return False
-        return True
+        return "".join(stack)
