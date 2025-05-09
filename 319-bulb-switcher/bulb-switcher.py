@@ -4,9 +4,8 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        count = 0
-        i = 1
-        while i*i <= n:
-            count += 1
-            i += 1
-        return count
+        c,i=0,1
+        while i*i <=n:
+            c+=1
+            i+=1
+        return c
