@@ -4,11 +4,18 @@ class Solution(object):
         :type neededApples: int
         :rtype: int
         """
-        sum =0
-        l=0
-        for l in range(100000):
+        # sum =0
+        # l=0
+        # for l in range(100000):
+        #     sum = 2 *l * (l+1)*((2*l)+1) 
+        #     if sum >= neededApples:
+        #         break
+        # return 8*l
+        sum = 0
+        l =0
+        while l<=100000:
             sum = 2 *l * (l+1)*((2*l)+1) 
             if sum >= neededApples:
                 break
+            l +=1
         return 8*l
-                
